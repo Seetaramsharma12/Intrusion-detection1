@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDS/IPS Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="shield-icon">🛡️</span> SENTINEL: IDS/IPS SYSTEM</h1>
+            <div class="status-badge" id="system-status">SYSTEM ONLINE</div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Stats Cards -->
+            <div class="card stat-card">
+                <h3>Total Requests</h3>
+                <div class="value" id="total-requests">0</div>
+            </div>
+            <div class="card stat-card">
+                <h3>Threats Blocked</h3>
+                <div class="value danger" id="threats-blocked">0</div>
+            </div>
+            <div class="card stat-card">
+                <h3>Active Threats</h3>
+                <div class="value warning" id="active-threats">0</div>
+            </div>
+
+            <!-- Charts -->
+            <div class="card chart-card">
+                <h3>Network Traffic Intensity</h3>
+                <canvas id="trafficChart"></canvas>
+            </div>
+
+            <!-- Simulation Controls -->
+            <div class="card control-card">
+                <h3>Attack Simulation</h3>
+                <div class="button-group">
+                    <button id="btn-simulate-normal" class="btn btn-success">Simulate Normal Traffic</button>
+                    <button id="btn-simulate-ddos" class="btn btn-danger">Simulate DDoS Attack</button>
+                </div>
+            </div>
+
+            <!-- Live Logs -->
+            <div class="card log-card">
+                <h3>Live Alert Log</h3>
+                <div class="table-wrapper">
+                    <table id="log-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Source IP</th>
+                                <th>Type</th>
+                                <th>Action</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
